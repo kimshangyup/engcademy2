@@ -1,0 +1,154 @@
+
+
+<html>
+<head>
+   <title>Engcademy</title>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+   </script>
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+   <!-- Optional theme -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+   <!-- Latest compiled and minified JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+   <link href='http://fonts.googleapis.com/css?family=Poiret+One|Gloria+Hallelujah|Indie+Flower' rel='stylesheet' type='text/css' />
+   <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/hanna.css"/>
+
+   <style>
+   
+   div{
+
+      height: 100%;
+   }
+   .col-md-3{
+   	padding:40px;
+   	border-right:1px solid lightgray;
+   	background-color:#F2F2F2;
+   }
+   .col-md-2{
+  border-left:1px solid lightgray; 	
+  background-color:#FEFFDD;
+   }
+form{
+	margin-top:70px;
+}
+   h2 {
+      margin-top: 40px;
+   }
+h3{
+	margin-top:80px;
+}
+   p {
+      line-height: 180%
+   }
+
+.right{
+	color:green;
+}
+.wrong{
+	color:red;
+}
+.progress{
+	margin-bottom:-40px;
+}
+
+.navbar-fixed-top{
+background-image:linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+color:white;
+}
+
+li,.glyphicon{
+	color:gray;
+}
+
+   </style>
+
+</head>
+<body>
+   <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <p class="navbar-text navbar-left">Engcademy <a href="#" class="navbar-link"></a></p>
+            	
+        </div>
+   </nav>
+
+   <div class="row">
+        <div class="col-md-3">
+           
+           <h2>'전치사+명사'의 사용<br>:형용사적 용법</h2>
+
+         <p>전치사구인 '전치사+명사'가 한 단어처럼 바로 앞 명사를 수식해주는 경우입니다. 다음 예문을 살펴볼까요.</p>
+
+         <p>ex) The students in the class need time. 여기서 전치사는 무엇이죠? ~안에를 나타내는 in 이죠. 그 뒤에 있는 명사는 the class (교실) 이구요. 이렇게 '전치사+명사'로 합쳐진 in the class 는 바로 앞 명사인 the students (학생)을 수식하며 '교실 안에 있는 학생'이라는 하나의 주어를 만들고 있습니다. </p>
+
+         <p>그렇다면 '파티에 있는 남자는 맥주를 원한다' 는 어떻게 표현할 수 있을까요. The men at the party want beer. 맞죠? 여기서 '전치사+명사'는 'The men at the party'가 되겠구요.</p>
+
+         <p>자, 이제 감이 잡히시나요?</p>            
+         <p>'전치사+명사'의 형용사적 용법을 이용하여 다음 예문을 풀어봅시다.</p>
+         
+      </div>
+        <div class="col-md-7">
+
+<form action="/engcademy/check" method="POST">
+	1. <span class="right">교실에 있는</span> 그 학생들은 시간이 필요해요.<br>
+	The students <input type="text" name="q0"> need time. <span class={{checklist[0]}}>{{checklist[0]}}</span><br><br>
+	2. <span class="right">그 사람으로부터 온</span> 그 문자가 사실을 말해주잖아요.<br>
+	The text message <input type="text" name="q1"> tells the truth. <span class={{checklist[1]}}>{{checklist[1]}}</span><br><br>
+	3. <span class="right">입구에 있는</span> 그 남자가 이것을 주었어요.<br>
+	The man <input type="text" name="q2"> gave this. <span class={{checklist[2]}}>{{checklist[2]}}</span><br><br>
+	4. <span class="right">R&#38;D팀에 있는</span> 미스터 김이 스케줄을 바꿨어요.<br>
+	Mr.Kim <input type="text" name="q3"> changed the schedule. <span class={{checklist[3]}}>{{checklist[3]}}</span><br><br>
+	5. <span class="right">파란색 셔츠를 입고있는</span> 그 고객이 이것을 샀어요.
+	The customer <input type="text" name="q4"> bought this. <span class={{checklist[4]}}> {{checklist[4]}}</span>
+	<input type="submit">
+</form>
+<a href="/qna">Q'A Forum</a>
+
+
+        </div>
+	<div class="col-md-2">
+	<h3><a href="#">Hint</a> </h3><span class="glyphicon glyphicon-comment"></span>
+	<ul>
+		<li>in</li>
+		<li>from</li>
+		<li>class</li>
+		<li>entrance</li>
+		<li>team</li>
+		<li>at</li>
+		<li>blue</li>
+		<li>with</li>
+		<li>him</li>
+		<li>shirt</li>
+		<li>R&#38;D</li>
+		<li>the</li>
+	</ul>
+
+	</div>
+   
+   </div>
+
+   <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+        	<div class="progress">
+  					<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+   					 <span class="sr-only">40% Complete (success)</span>
+  					</div>
+				</div>
+
+             <p class="navbar-text navbar-right">
+             <button id="check" type="button" class="btn btn-danger">next</button></p>
+        </div>
+   </nav>
+
+</body>
+</html>
+
+
+
+
+
+</body>
+</html>
+

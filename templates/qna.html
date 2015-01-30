@@ -1,0 +1,73 @@
+<html>
+<head>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<style>
+	button{
+		margin-left:60px;
+		width:400px;
+	}
+table{
+	margin-top:20px;
+}
+h2{
+	margin-top:100px;
+}
+.flashes li{
+	color:blue;
+	list-style-type:none;
+	font-size:24px;
+}
+</style>
+<body>
+
+<div class="col-md-offset-4">
+<h2>Q'A Forum</h2>
+<form action="/qna/getqna" method='POST'>
+<table>
+	<tr>
+		<td>Title:</td>
+		<td><input type="text" name='title'></td>
+	</tr>
+	<tr>
+		<td>Qustion:</td>
+		<td><input type="textarea" name="text" style="width:400px; height:300px;"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><button type="submit" class="btn btn-success">send</button></td>
+	</tr>
+</table>
+</form>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<h2>list</h2>
+{% for i in question %}
+<li>{{i.title}}</li>
+<li>{{i.text}}</li><br>
+{% endfor %}
+
+</div>
+</body>
+</html>

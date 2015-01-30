@@ -1,0 +1,40 @@
+{% extends 'layout4.html' %}
+
+{% block co %}
+Engcademy
+<div id="navright">
+<form action="/login/check" method='POST'>
+login >>&nbsp;ID: <input type="text" name='username'> PW: <input type="password" name='password'><input type="submit" value="login">
+</form>
+</div>
+{% endblock %}
+
+{% block bo %}
+
+<div class="col-md-3 col-md-offset-3" id="jumbotron">
+join us~:)
+</div>
+<div class="col-md-3">
+<h2>sign up now!</h2>
+<form action="/signup/check" method="POST">
+
+<table class="table">
+	<tr>
+		<td>ID:</td>
+		<td><input type="text" name="username"></td>
+	</tr>
+	<tr>
+		<td>PW:</td>
+		<td><input type="password" name="password"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit"></td>
+	</tr>
+</table>
+
+</form>
+
+<a href="/login">I'm already your member!</a>
+</div>
+
+{% endblock %}
