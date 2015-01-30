@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 
-from flask import request, render_template, session, Flask, redirect, url_for, flash
+from flask import request, render_template, session, Flask, redirect, url_for, flash, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
 from bs4 import BeautifulSoup
 import urllib
@@ -58,23 +58,41 @@ def signup_check():
 def engca():
 	return render_template('index.html')
 
-@app.route('/engcademy')
-def engcademy():
-	checklist=[]
-	return render_template('engcademy.html',checklist=checklist)
 
-@app.route('/engcademy/check',methods=['POST'])
-def engcademy_check():
-	qlist=[]		
-	anslis=['in class','from him','at the entrance','in R&D team','with blue shirts']
+
+
+@app.route('/engcademy/0')
+def engcademy1():
 	checklist=[]
+	return render_template('engcademy0.html',checklist=checklist)
+
+
+@app.route('/engcademy/1')
+def engcademy2():
+	checklist=[]
+	return render_template('engcademy1.html',checklist=checklist)
+
+
+@app.route('/engcademy/2')
+def engcademy3():
+	checklist=[]
+	return render_template('engcademy2.html',checklist=checklist)
+
+
+@app.route('/engcademy/<temp>/check',methods=['POST'])
+def engcademy_check(temp):
+	qlist=[]		
+	anslis=['in the class','from him','at the entrance','in R&D team','with blue shirts']
+	anslist=[['bought it','opened the door','saved money','changed the channel','visited me'],['to give you','to refresh the air','to travle','to watch the dramal','to talk'],['for your birthday','before the meeting','during the summer vacation','after the newsl','in private']]
+	list=[]
 	for i in range(0,5):
 		qlist.append(request.form['q'+str(i)])
-		if anslis[i]==qlist[i]:
-			checklist.append('right')
+		if anslist[int(temp)][i]==qlist[i]:
+			list.append('right')
 		else:
-			checklist.append('wrong')
-	return render_template('engcademy.html',checklist=checklist)
+			list.append('wrong')
+	return jsonify(ment=list)
+
 
 @app.route('/qna') 
 def qna():
@@ -112,7 +130,7 @@ def login_check():
 	users=User.query.filter(User.username==username).all()
 	if users:
 		if users[0].password==password:
-			return render_template('engcademy.html',checklist=checklist,title='Welcome, '+username,users=users)
+			return render_template('engcademy0.html',checklist=checklist,title='Welcome, '+username,users=users)
 			session['logged_in']=True
 		else:
 			return 'wrong password'

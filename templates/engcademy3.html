@@ -93,17 +93,18 @@ li,.glyphicon{
       </div>
         <div class="col-md-7">
 
-	1. <span class="right">교실에 있는</span> 그 학생들은 시간이 필요해요.<br>
-	The students <input type="text" id="q0"> need time. <span id="s0"></span><br><br>
-	2. <span class="right">그 사람으로부터 온</span> 그 문자가 사실을 말해주잖아요.<br>
-	The text message <input type="text" id="q1"> tells the truth. <span id="s1"></span><br><br>
-	3. <span class="right">입구에 있는</span> 그 남자가 이것을 주었어요.<br>
-	The man <input type="text" id="q2"> gave this. <span id="s2"></span><br><br>
-	4. <span class="right">R&#38;D팀에 있는</span> 미스터 김이 스케줄을 바꿨어요.<br>
-	Mr.Kim <input type="text" id="q3"> changed the schedule. <span id="s3"></span><br><br>
-	5. <span class="right">파란색 셔츠를 입고있는</span> 그 고객이 이것을 샀어요.
-	The customer <input type="text" id="q4"> bought this. <span id="s4"></span>
-	<input type="submit" id="submit">
+<!--here-->
+1. 저는 <span class="right">당신 생일을 위해 </span>당신에게 주려고 그것을 샀어요.<br>
+   I bought it to give you <input type="text" id="q0">. <span id="s1"></span><br><br>
+   2. 우리는 <span class="right">회의를 하기 전에 </span>공기를 상쾌하게 바꾸기 위해 문을 열었어요.<br>
+   We opened the door to refresh the air <input type="text" id="q1">. <span id="s2"></span><br><br>
+   3. 그는 <span class="right">여름방학 동안 </span>여행하기 위해 돈을 저축했어요.<br>
+   He saved money to travel <input type="text" id="q2">. <span id="s3"></span><br><br>
+   4. 저는 <span class="right">뉴스 끝나고 </span>드라마를 보기 위해 채널을 바꿨어요.<br>
+   I changed the channel to watch the drama <input type="text" id="q3">. <span id="s4"></span><br><br>
+   5. Tony가 <span class="right">개인적으로 </span>대화하려고 저를 방문했어요.
+   Tony visited me to talk <input type="text" id="q4">. <span id="s5"></span>
+   <input type="submit" id="submit">
 
 <a href="/qna">Q'A Forum</a>
 
@@ -153,7 +154,7 @@ var submit_ment=function(){
 
   $.ajax({
     type:'POST',
-    url:'/engcademy/check',
+    url:'/engcademy/2/check',
     data:{
       'q0':$('#q0').val(),
       'q1':$('#q1').val(),
