@@ -83,7 +83,7 @@ def engcademy3():
 def engcademy_check(temp):
 	qlist=[]		
 	anslis=['in the class','from him','at the entrance','in R&D team','with blue shirts']
-	anslist=[['bought it','opened the door','saved money','changed the channel','visited me'],['to give you','to refresh the air','to travle','to watch the dramal','to talk'],['for your birthday','before the meeting','during the summer vacation','after the newsl','in private']]
+	anslist=[['bought it','opened the door','saved money','changed the channel','visited me'],['to give you','to refresh the air','to travel','to watch the drama','to talk'],['for your birthday','before the meeting','during the summer vacation','after the news','in private']]
 	list=[]
 	for i in range(0,5):
 		qlist.append(request.form['q'+str(i)])
