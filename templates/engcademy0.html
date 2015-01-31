@@ -1,99 +1,6 @@
-  <html>
-  <head>
-    <title>Engcademy</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
-    </script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+{% extends 'layout.html' %}
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Poiret+One|Gloria+Hallelujah|Indie+Flower' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/hanna.css"/>
-
-    <style>
-
-      div {
-            height: 100%;
-      }
-      form {
-            margin-top:70px;
-      }
-      h2 {
-            margin-top: 40px;
-            font-family: Hanna;
-      }
-      .navbar-fixed-top {
-            background-image:linear-gradient(to bottom,#5cb85c 0,#419641 100%);
-            color:white;
-      }
-      .navbar-text {
-            font-family: 'Hanna';
-            font-size: 18px;
-      }
-      li,.glyphicon {
-         color:gray;
-      }
-      .col-md-3 {
-            padding: 45px;
-            padding-right: 20px;
-            border-right: 1px solid lightgray;
-            background-color: #F2F2F2;
-      }
-      .col-md-3 > h3 {
-            font-family: Hanna;
-      }
-      .col-md-3 > p {
-            font-family: '맑은 고딕';
-            line-height: 150%
-      }
-      .col-md-7 {
-            margin-top: 110px;
-            margin-left: 20px;
-            margin-right: -20px;
-            font-family: '맑은 고딕';
-            line-height: 160%
-      }
-    .col-md-2 {
-            border-left:1px solid lightgray;    
-            background-color:#FEFFDD;
-      }
-      .col-md-2 > h3 {
-            margin-top:80px;
-            font-family: Hanna;
-      }
-      .right {
-          color:red;
-      }
-      .wrong {
-          color:red;
-      }
-      .progress {
-          margin-bottom:-40px;
-      }
-      .hint {
-            color:#FEFFDD;
-      }
-      .hint_color {
-            color:gray;
-      }
-
-
-    </style>
-</head>
-
-<body>
-      <nav class="navbar navbar-fixed-top">
-            <div class="container">
-                  <p class="navbar-text navbar-left">Engcademy <a href="#" class="navbar-link"></a></p>
-            </div>
-      </nav>
-
-<div class="row">
-      <div class="col-md-3">
+{% block body1 %}
 
             <h2>문장 시작하기</h2> <h3> ▶▶주어+동사+목적어</h3>
 
@@ -109,13 +16,9 @@
 
             <br><br>
 
-            <a href="/qna">Q'A Forum</a>
+{% endblock %}
 
-      </div>
-
-
-      <div class="col-md-7">
-
+{% block body2 %}
             <!--here-->
 
             1. 저는 <span class="right">그것을 샀어요.</span><br>
@@ -132,80 +35,13 @@
 
             <br><br>
           
-            <div class="ps">
-                  <h5><strong>※ 대소문자, 띄어쓰기 정확하게 입력해주세요.</strong></h5>    
-            </div>
-
-      </div>
-        
-      <div class="col-md-2">
-            <h3><a  id="hint_title" href="#">Hint</a> </h3><span class="glyphicon glyphicon-comment"></span>
-                  <ul>
-                         <li class="hint">save</li>
-                         <li class="hint">change</li>
-                         <li class="hint">visit</li>
-                         <li class="hint">channel</li>
-                         <li class="hint">buy</li>
-                         <li class="hint">open</li>
-                         <li class="hint">money</li>
-                         <li class="hint">Tony</li>
-                         <li class="hint">the</li>
-                         <li class="hint">door</li>
-                         <li class="hint">me</li>
-                  </ul>
-       </div>
-</div>
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
-            <div class="progress">
-                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                        <span class="sr-only">40% Complete (success)</span>
-                  </div>
-            </div>
-
-            <p class="navbar-text navbar-right">
-            <a href="/engcademy/1"><button id="check" type="button" class="btn btn-danger">next</button></a></p>
-      </div>
-</nav>
+{% endblock %}
+           
+{% block body3 %}
+{% for i in hint %}
+<li class="hint">{{i}}</li>
+{% endfor %}
+{% endblock %}
 
 
 
-<script type="text/javascript">
-
-      $(document).ready(function(){
-
-            var submit_ment=function(){
-
-            $.ajax({
-                  type:'POST',
-                  url:'/engcademy/0/check',
-                  data:{
-                        'q0':$('#q0').val(),
-                        'q1':$('#q1').val(),
-                        'q2':$('#q2').val(),
-                        'q3':$('#q3').val(),
-                        'q4':$('#q4').val()
-                   },
-                  success:function(msg){
-                          for(i=0;i<msg['ment'].length;i++){
-                          $('#s'+i)[0].innerHTML=msg['ment'][i];
-                          $('#s'+i)[0].className=msg['ment'][i];
-                          }
-                  
-                          if(msg['ment']==['right','right','right','right','right']){
-                                alert('Great');
-                          }
-                   }
-            })
-      }
-
-            $('#submit').on('click',submit_ment)
-            $("#hint_title").click(function(){
-            $(".hint").toggleClass("hint_color");
-            });
-      }) 
-
-</script>
-</body>
-</html>

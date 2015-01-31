@@ -63,20 +63,26 @@ def engca():
 
 @app.route('/engcademy/0')
 def engcademy1():
+	progress=[40,1]
+	hint=['save','change','visit','channel','buy','open','money','Tony','the','door','me']
 	checklist=[]
-	return render_template('engcademy0.html',checklist=checklist)
+	return render_template('engcademy0.html',checklist=checklist,hint=hint,progress=progress)
 
 
 @app.route('/engcademy/1')
 def engcademy2():
+	progress=[60,2]
+	hint= ['talk','travel','refresh','give','the','watch','air','drama','you']
 	checklist=[]
-	return render_template('engcademy1.html',checklist=checklist)
+	return render_template('engcademy1.html',checklist=checklist,hint=hint,progress=progress)
 
 
 @app.route('/engcademy/2')
 def engcademy3():
+	progress=[80,3]
+	hint=['news','summer vacation','birthday','private','meeting']
 	checklist=[]
-	return render_template('engcademy2.html',checklist=checklist)
+	return render_template('engcademy2.html',checklist=checklist,hint=hint,progress=progress)
 
 
 @app.route('/engcademy/<temp>/check',methods=['POST'])
@@ -114,7 +120,6 @@ def getqna():
 		except:
 			return "This question already exists"
 	return redirect(url_for('qna'))
-
 
 
 
