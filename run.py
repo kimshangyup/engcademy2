@@ -63,7 +63,7 @@ def engca():
 
 @app.route('/engcademy/0')
 def engcademy1():
-	progress=[40,1]
+	progress=[20,1]
 	hint=['save','change','visit','channel','buy','open','money','Tony','the','door','me']
 	checklist=[]
 	return render_template('engcademy0.html',checklist=checklist,hint=hint,progress=progress)
@@ -71,7 +71,7 @@ def engcademy1():
 
 @app.route('/engcademy/1')
 def engcademy2():
-	progress=[60,2]
+	progress=[40,2]
 	hint= ['talk','travel','refresh','give','the','watch','air','drama','you']
 	checklist=[]
 	return render_template('engcademy1.html',checklist=checklist,hint=hint,progress=progress)
@@ -79,17 +79,32 @@ def engcademy2():
 
 @app.route('/engcademy/2')
 def engcademy3():
-	progress=[80,3]
+	progress=[60,3]
 	hint=['news','summer vacation','birthday','private','meeting']
 	checklist=[]
 	return render_template('engcademy2.html',checklist=checklist,hint=hint,progress=progress)
+
+
+@app.route('/engcademy/3')
+def engcademy4():
+	progress=[80,4]
+	hint=['travel', 'watch', 'private', 'news', 'birthday', 'channel', 'talk', 'summer vacation', 'meeting', 'drama', 'talk', 'save']
+	checklist=[]
+	return render_template('engcademy3.html',checklist=checklist,hint=hint,progress=progress)
+
 
 
 @app.route('/engcademy/<temp>/check',methods=['POST'])
 def engcademy_check(temp):
 	qlist=[]		
 	anslis=['in the class','from him','at the entrance','in R&D team','with blue shirts']
-	anslist=[['bought it','opened the door','saved money','changed the channel','visited me'],['to give you','to refresh the air','to travel','to watch the drama','to talk'],['for your birthday','before the meeting','during the summer vacation','after the news','in private']]
+	anslist=[                                                                                                                                                            #답쓸때 리스트 중간중간에 콤마(,)
+	['bought it','opened the door','saved money','changed the channel','visited me'],                                           #engcademy0 answer
+	['to give you','to refresh the air','to travel','to watch the drama','to talk'],                                                          #engcademy1 answer
+	['for your birthday','before the meeting','during the summer vacation','after the news','in private'],                #engcademy2 answer
+	['I bought it to give you for your birthday', 'We opened the door to refresh the air before the meeting', 'He saved money to travel during the summer vacation', 'I changed the channel to watch the drama after the news', 'Tony visited me to talk in private']  #engcademy3 answer
+
+	]
 	list=[]
 	for i in range(0,5):
 		qlist.append(request.form['q'+str(i)])
