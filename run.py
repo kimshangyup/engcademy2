@@ -92,6 +92,13 @@ def engcademy4():
 	checklist=[]
 	return render_template('engcademy3.html',checklist=checklist,hint=hint,progress=progress)
 
+@app.route('/engcademy/4')
+def engcademy5():
+	progress=[100,5]
+	hint=[]
+	checklist=[]
+	return render_template('engcademy4.html',checklist=checklist,hint=hint,progress=progress)
+
 
 
 @app.route('/engcademy/<temp>/check',methods=['POST'])
