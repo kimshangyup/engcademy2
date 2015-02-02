@@ -15,10 +15,8 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/hanna.css"/>
 
     <style>
-
-      div {
-            height: 100%;
-      }
+     
+         
       form {
             margin-top:70px;
       }
@@ -42,28 +40,31 @@
             padding-right: 20px;
             border-right: 1px solid lightgray;
             background-color: #F2F2F2;
+            min-height: 135%; 
       }
       .col-md-3 > h3 {
             font-family: Hanna;
       }
       .col-md-3 > p {
             font-family: '맑은 고딕';
-            line-height: 150%
+            line-height: 150%;
       }
       .col-md-7 {
             margin-top: 110px;
             margin-left: 20px;
             margin-right: -20px;
             font-family: '맑은 고딕';
-            line-height: 160%
+            line-height: 160%;
       }
     .col-md-2 {
             border-left:1px solid lightgray;    
             background-color:#FEFFDD;
+            min-height: 135%;                               
       }
       .col-md-2 > h3 {
             margin-top:80px;
             font-family: Hanna;
+
       }
       .right {
           color:red;
@@ -101,24 +102,25 @@
             
             <br>
             <a href="/qna">Q'A Forum</a>
-
+            <br><br><br>
       </div>
 
 
-      <div class="col-md-7">
-
+      <div class="col-md-7">  
+            <div class="ps">
+                  <h5><strong>※ 대소문자, 띄어쓰기 정확하게 입력해주세요.</strong></h5>    
+            </div>
            <!--여기에 문제가 들어갑니다-->
            {% block body2 %}
            {% endblock %}
 
             <br><br>
           
-            <div class="ps">
-                  <h5><strong>※ 대소문자, 띄어쓰기 정확하게 입력해주세요.</strong></h5>    
-            </div>
+            
 
       </div>
-        
+      
+      
       <div class="col-md-2">
             <h3><a  id="hint_title" href="#">Hint</a> </h3><span class="glyphicon glyphicon-comment"></span>
                   
@@ -130,6 +132,7 @@
 
                   </ul>
        </div>
+
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -180,7 +183,8 @@
       }
 
             $('#submit').on('click',submit_ment)
-            $("#hint_title").click(function(){
+
+            $("#hint_title").click(function(){                      
             $(".hint").toggleClass("hint_color");
             });
       }) 
