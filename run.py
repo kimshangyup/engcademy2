@@ -151,13 +151,14 @@ def login():
 
 @app.route('/login/check', methods=['GET','POST'])
 def login_check():
+	progress=[20,1]
 	checklist=[]
 	username=request.form['username']
 	password=request.form['password']
 	users=User.query.filter(User.username==username).all()
 	if users:
 		if users[0].password==password:
-			return render_template('engcademy0.html',checklist=checklist,title='Welcome, '+username,users=users)
+			return render_template('engcademy0.html',checklist=checklist,title='Welcome, '+username,users=users, progress=progress)
 			session['logged_in']=True
 		else:
 			return 'wrong password'
